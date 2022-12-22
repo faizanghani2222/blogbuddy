@@ -1,10 +1,10 @@
-import { Heading } from "@chakra-ui/react";
+import AllRoutes from "./Components/AllRoutes";
 
 
 function App() {
   return (
     <div className="App">
-     <Heading>Hello World!!!!</Heading>
+     <AllRoutes />
     </div>
   );
 }
