@@ -1,0 +1,11 @@
+#Input{
+    border: none;
+    border-radius:0px;
+   
+    border-bottom: 1px solid #999;
+    
+}
+
+#Input::placeholder{
+    color: #999;
+}

@@ -1,10 +1,11 @@
 import AllRoutes from "./Components/AllRoutes";
+import SignUp from "./Pages/SignUp/SignUp";
 
 
 function App() {
   return (
     <div className="App">
-     <AllRoutes />
+     <SignUp/>
     </div>
   );
 }
