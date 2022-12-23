@@ -14,28 +14,30 @@ import {
   InputLeftElement,
   InputGroup,
 } from "@chakra-ui/react";
-import styles from "./SignUp.module.css";
-import SideImage from "../../Assets/signup-image.jpg";
-import { MdEmail } from "react-icons/md";
+import styles from "./Login.module.css";
+import SideImage from "../../Assets/signin-image.jpg";
+
 import { HiUser } from "react-icons/hi";
-import { BiLock, BiLockAlt } from "react-icons/bi";
-import { TiLockClosed } from "react-icons/ti";
-export default function SignUp() {
+import { BiLockAlt } from "react-icons/bi";
+import { ImFacebook2 } from "react-icons/im";
+import { FcGoogle } from "react-icons/fc";
+import { FaTwitter } from "react-icons/fa";
+export default function Login() {
   return (
     <Stack bg="rgb(248, 248, 248)" h="90vh">
       <Stack
         bg={"white"}
         shadow={"lg"}
         borderRadius={"3xl"}
-        p="3em"
+        p="0.2em"
         w="55%"
-        h="70%"
+        h="65%"
         m="auto"
-        direction={{ base: "column", md: "row" }}
+        direction={{ base: "column", md: "row-reverse" }}
       >
         <Flex p={8} flex={1} align={"center"} justify={"center"}>
           <Stack spacing={4} w={"full"} maxW={"md"}>
-            <Heading fontSize={"4xl"}>Sign up</Heading>
+            <Heading fontSize={"4xl"}>Sign In</Heading>
 
             <InputGroup id="username">
               <InputLeftElement>
@@ -49,17 +51,7 @@ export default function SignUp() {
                 placeholder="Your Name"
               />
             </InputGroup>
-            <InputGroup id="email">
-              <InputLeftElement>
-                <MdEmail />
-              </InputLeftElement>
-              <Input
-                id={styles.Input}
-                type="email"
-                focusBorderColor="white"
-                placeholder="Your Email"
-              />
-            </InputGroup>
+
             <InputGroup id="email">
               <InputLeftElement>
                 <BiLockAlt />
@@ -71,17 +63,7 @@ export default function SignUp() {
                 placeholder="Password"
               />
             </InputGroup>
-            <InputGroup id="password">
-              <InputLeftElement>
-                <TiLockClosed />
-              </InputLeftElement>
-              <Input
-                id={styles.Input}
-                type="password"
-                focusBorderColor="white"
-                placeholder="Repeat your password"
-              />
-            </InputGroup>
+
             <Stack spacing={6}>
               <Stack
                 p="1rem 0px"
@@ -90,7 +72,7 @@ export default function SignUp() {
                 justify={"start"}
               >
                 <Checkbox border={"#999"} color={"#555"}>
-                  I agree all statements in <u>Term of service</u>
+                  Remember me
                 </Checkbox>
               </Stack>
               <Button
@@ -99,8 +81,22 @@ export default function SignUp() {
                 w="40%"
                 colorScheme={"yellow"}
               >
-                Register
+                Login in
               </Button>
+              <Stack
+                p="1rem 0px"
+                direction={{ base: "row", sm: "row" }}
+                align={"center"}
+                justify={"start"}
+              >
+                <Flex gap={6} alignItems={"center"}>
+                  <Text>Or login with </Text>
+                  <Flex gap={2}>
+                    {" "}
+                    <ImFacebook2 color="#4267B2" fontSize={"1.5rem"} /> <FcGoogle fontSize={"1.5rem"}  /> <FaTwitter fontSize={"1.5rem"} color={"#1DA1F2"} />{" "}
+                  </Flex>
+                </Flex>
+              </Stack>
             </Stack>
           </Stack>
         </Flex>
@@ -111,7 +107,7 @@ export default function SignUp() {
           flex={1}
         >
           <Image
-            h={["90%", "60%", "65%"]}
+            h={["90%", "65%", "65%"]}
             alt={"Login Image"}
             objectFit={"cover"}
             src={SideImage}
@@ -119,7 +115,7 @@ export default function SignUp() {
 
           <Text color={"#555"} textDecoration={"underline"}>
             {" "}
-            I am already member
+            Create an account
           </Text>
         </Stack>
       </Stack>
