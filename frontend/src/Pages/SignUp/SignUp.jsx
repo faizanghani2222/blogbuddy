@@ -18,9 +18,29 @@ import styles from "./SignUp.module.css";
 import SideImage from "../../Assets/signup-image.jpg";
 import { MdEmail } from "react-icons/md";
 import { HiUser } from "react-icons/hi";
-import { BiLock, BiLockAlt } from "react-icons/bi";
+import { BiLockAlt } from "react-icons/bi";
 import { TiLockClosed } from "react-icons/ti";
+import { useState } from "react";
+import { useCreateSignUpMutation } from "../../app/CreateAuth";
 export default function SignUp() {
+  const [createSignUp, { isLoading }] = useCreateSignUpMutation();
+  const [text, setText] = useState({
+    username: "",
+    email: "",
+    password: "",
+    confirmPassword: "",
+  });
+  function handleChange({ target: { name, value } }) {
+    setText((prev) => ({ ...prev, [name]: value }));
+  }
+  async function handleClick() {
+    try {
+      await createSignUp(text);
+      alert("user Sign up successfully");
+    } catch (e) {
+      console.log(e.response.message);
+    }
+  }
   return (
     <Stack bg="rgb(248, 248, 248)" h="90vh">
       <Stack
@@ -29,7 +49,8 @@ export default function SignUp() {
         borderRadius={"3xl"}
         p="3em"
         w="55%"
-        h="70%"
+        minH="70%"
+        h="auto"
         m="auto"
         direction={{ base: "column", md: "row" }}
       >
@@ -44,6 +65,8 @@ export default function SignUp() {
 
               <Input
                 id={styles.Input}
+                name="username"
+                onChange={handleChange}
                 focusBorderColor="white"
                 type="text"
                 placeholder="Your Name"
@@ -55,6 +78,8 @@ export default function SignUp() {
               </InputLeftElement>
               <Input
                 id={styles.Input}
+                name="email"
+                onChange={handleChange}
                 type="email"
                 focusBorderColor="white"
                 placeholder="Your Email"
@@ -66,6 +91,8 @@ export default function SignUp() {
               </InputLeftElement>
               <Input
                 id={styles.Input}
+                name="password"
+                onChange={handleChange}
                 type="password"
                 focusBorderColor="white"
                 placeholder="Password"
@@ -77,6 +104,8 @@ export default function SignUp() {
               </InputLeftElement>
               <Input
                 id={styles.Input}
+                name="confirmPassword"
+                onChange={handleChange}
                 type="password"
                 focusBorderColor="white"
                 placeholder="Repeat your password"
@@ -94,9 +123,11 @@ export default function SignUp() {
                 </Checkbox>
               </Stack>
               <Button
+                isLoading={isLoading}
                 color={"white"}
                 fontWeight={100}
                 w="40%"
+                onClick={handleClick}
                 colorScheme={"yellow"}
               >
                 Register
