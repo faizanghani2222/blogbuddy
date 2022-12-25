@@ -17,10 +17,7 @@ const BlogCard = ({title,image,category,date,content}) => {
         <Text fontSize="25px" fontWeight="bold">
           {title}
         </Text>
-        <div dangerouslySetInnerHTML={{__html:content.slice(0,100)}} />
-        {/* <Text align='justify'letterSpacing='1px' lineHeight='1.2rem'>
-          {content.slice(0,100)}
-        </Text> */}
+        <div dangerouslySetInnerHTML={{__html:content.slice(0,200)}} />
         </Stack>
         <Img h='100px' src={image} />
       </Flex>
