@@ -39,17 +39,18 @@ export default function SignUp() {
   }
 
   return (
-    <Stack bg="rgb(248, 248, 248)" h="90vh">
+    <Stack bg="rgb(248, 248, 248)" p="20px" minH="90vh" h="auto">
       <Stack
         bg={"white"}
         shadow={"lg"}
         borderRadius={"3xl"}
-        p="3em"
-        w="55%"
+        p={["0em","1em","3em"]}
+
+       w={["95%","90%","55%"]}
         minH="70%"
         h="auto"
         m="auto"
-        direction={{ base: "column", md: "row" }}
+        direction={{ base: "column", md: "row",lg:"row" }}
       >
         <Flex p={8} flex={1} align={"center"} justify={"center"}>
           <Stack spacing={4} w={"full"} maxW={"md"}>
