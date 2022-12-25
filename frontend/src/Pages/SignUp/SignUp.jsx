@@ -6,13 +6,13 @@ import {
   FormLabel,
   Heading,
   Input,
-  Link,
   Stack,
   Image,
   Text,
   Box,
   InputLeftElement,
   InputGroup,
+  useToast,
 } from "@chakra-ui/react";
 import styles from "./SignUp.module.css";
 import SideImage from "../../Assets/signup-image.jpg";
@@ -22,7 +22,11 @@ import { BiLockAlt } from "react-icons/bi";
 import { TiLockClosed } from "react-icons/ti";
 import { useState } from "react";
 import { useCreateSignUpMutation } from "../../app/CreateAuth";
+import { Link } from "react-router-dom";
+import handleClick from "../../app/SignUp";
 export default function SignUp() {
+  const toast = useToast();
+
   const [createSignUp, { isLoading }] = useCreateSignUpMutation();
   const [text, setText] = useState({
     username: "",
@@ -33,14 +37,7 @@ export default function SignUp() {
   function handleChange({ target: { name, value } }) {
     setText((prev) => ({ ...prev, [name]: value }));
   }
-  async function handleClick() {
-    try {
-      await createSignUp(text);
-      alert("user Sign up successfully");
-    } catch (e) {
-      console.log(e.response.message);
-    }
-  }
+
   return (
     <Stack bg="rgb(248, 248, 248)" h="90vh">
       <Stack
@@ -127,7 +124,7 @@ export default function SignUp() {
                 color={"white"}
                 fontWeight={100}
                 w="40%"
-                onClick={handleClick}
+                onClick={() => handleClick(text, createSignUp, toast)}
                 colorScheme={"yellow"}
               >
                 Register
@@ -150,7 +147,7 @@ export default function SignUp() {
 
           <Text color={"#555"} textDecoration={"underline"}>
             {" "}
-            I am already member
+            <Link to="/signin">I am already member</Link>
           </Text>
         </Stack>
       </Stack>
