@@ -26,12 +26,22 @@ function Navbar(props) {
 
 
             <Box display="flex" gap="30px" alignItems={"center"}>
-                <Link to="/posts">
+       {    !props.createBlog?<Link to="/create-blog">
                 <Button variant="ghost" color="#8E8E8E" fontSize="18px">
                 <EditIcon mr="7px"/>
                 Write
                 </Button>
-                </Link>
+                </Link>:
+                <Button
+          variant="solid"
+          bg="green"
+          color="#fff"
+          _hover={{ background: "green", color: "#fff" }}
+          onClick={props.submitHandler}
+          borderRadius='40px'
+        >
+          Publish
+        </Button>}
                 <Link to="/notifications">
                 <BellIcon boxSize={7} color="#8E8E8E"/>
                 </Link>

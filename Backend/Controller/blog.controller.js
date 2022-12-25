@@ -1,6 +1,7 @@
 const Blog = require("../Model/blog.model");
 
 async function postBlogHandler(data){
+   console.log(data);
    await Blog.create(data);
    return {message:"Posted",error:false};
 }
