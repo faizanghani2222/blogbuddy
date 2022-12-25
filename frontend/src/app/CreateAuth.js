@@ -3,7 +3,7 @@ import {createApi,BaseQueryApi, fetchBaseQuery} from "@reduxjs/toolkit/query/rea
 const UserAuthAPI=createApi({
     reducerPath:"UserApis",
     baseQuery:fetchBaseQuery({
-        baseUrl:"https://mock15-bhoj.onrender.com/"
+        baseUrl:"http://localhost:8080/user"
     }),
     endpoints:(builder)=>({
         createSignUp:builder.mutation({
