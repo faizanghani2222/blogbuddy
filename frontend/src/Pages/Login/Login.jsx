@@ -19,13 +19,12 @@ import SideImage from "../../Assets/signin-image.jpg";
 import { Link } from "react-router-dom";
 import { HiUser } from "react-icons/hi";
 import { BiLockAlt } from "react-icons/bi";
-import { ImFacebook2 } from "react-icons/im";
-import { FcGoogle } from "react-icons/fc";
-import { FaTwitter } from "react-icons/fa";
+
 import { useCreateSignInMutation } from "../../app/CreateAuth";
 import { useState } from "react";
 import handleClick from "../../app/Login";
 import { useDispatch } from "react-redux";
+import SocialIcons from "../../Components/SocialIcons";
 export default function Login() {
   const dispatch=useDispatch()
   const toast = useToast();
@@ -39,14 +38,15 @@ export default function Login() {
   }
  
   return (
-    <Stack bg="rgb(248, 248, 248)" h="90vh">
+    <Stack bg="rgb(248, 248, 248)" p="10px" minH="90vh" h="auto">
       <Stack
         bg={"white"}
         shadow={"lg"}
         borderRadius={"3xl"}
         p="0.2em"
-        w="55%"
-        h="65%"
+        w={["95%","90%","55%"]}
+        minH="65%"
+        h="auto"
         m="auto"
         direction={{ base: "column", md: "row-reverse" }}
       >
@@ -83,7 +83,7 @@ export default function Login() {
               />
             </InputGroup>
 
-            <Stack spacing={6}>
+            <Stack  spacing={6}>
               <Stack
                 p="1rem 0px"
                 direction={{ base: "row", sm: "row" }}
@@ -108,23 +108,16 @@ export default function Login() {
                 p="1rem 0px"
                 direction={{ base: "row", sm: "row" }}
                 align={"center"}
-                justify={"start"}
+                justify={["center","center","start"]}
               >
-                <Flex gap={6} alignItems={"center"}>
-                  <Text>Or login with </Text>
-                  <Flex gap={2}>
-                    {" "}
-                    <ImFacebook2 color="#4267B2" fontSize={"1.5rem"} />{" "}
-                    <FcGoogle fontSize={"1.5rem"} />{" "}
-                    <FaTwitter fontSize={"1.5rem"} color={"#1DA1F2"} />{" "}
-                  </Flex>
-                </Flex>
+               <SocialIcons/> 
               </Stack>
             </Stack>
           </Stack>
         </Flex>
         <Stack
           h="100%"
+          p="1rem"
           alignItems={"center"}
           justifyContent={"center"}
           flex={1}

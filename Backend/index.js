@@ -11,6 +11,9 @@ app.use(cors());
 app.use("/blog",blogRouter);
 app.use("/file",uploadFile);
 app.use("/user",User)
-app.get('/', (req, res) => res.send('hello'))
+app.get('/', (req, res) =>{
+    const token1=req.header('Authorization')
+  console.log(token1)
+    res.send('hello')})
 dbConnect();
 app.listen(8080, () => {console.log('server started on port 8080')})
