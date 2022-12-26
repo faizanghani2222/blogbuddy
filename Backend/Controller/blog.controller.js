@@ -9,6 +9,10 @@ async function getBlogHandler(){
    let blog=await Blog.find();
    return {message:blog,error:false};
 }
+async function getBlogByIdHandler(id){
+   let blog=await Blog.findOne({_id:id});
+   return {message:blog,error:false};
+}
 async function updateBlogHandler(id){
    await Blog.findByIdAndUpdate(id);
    return {message:"Updated",error:false};
@@ -17,4 +21,4 @@ async function deleteBlogHandler(id){
    await Blog.findByIdAndDelete(id);
    return {message:"Deleted",error:false};
 }
-module.exports={postBlogHandler,getBlogHandler,updateBlogHandler,deleteBlogHandler}
+module.exports={postBlogHandler,getBlogByIdHandler,getBlogHandler,updateBlogHandler,deleteBlogHandler}

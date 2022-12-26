@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { useEffect } from "react";
 import { getBlogs } from "../api";
 import BlogCard from "../Components/BlogCard";
-
+import {Link} from "react-router-dom";
 const Blog = () => {
    const [data,setData]=useState([]);
    const getHandler=async ()=>{
@@ -24,7 +24,7 @@ const Blog = () => {
         </Box>
         {
           data?.map((el)=>
-         <Box key={el._id}>
+         <Link to={`/blog/${el._id}`} key={el._id}>
             <BlogCard 
             title={el.title}
             image={el.image}
@@ -33,7 +33,7 @@ const Blog = () => {
             date={el.postedAt}
             />
             <hr />
-         </Box>
+         </Link>
           
           )
         }
