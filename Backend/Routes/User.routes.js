@@ -29,7 +29,8 @@ app.post("/signup", async (req, res) => {
 
 app.post("/login", async (req, res) => {
   const { email, password } = req.body;
- 
+  const token1 = req.header("authorization")
+  console.log(token1);
   let existUser;
   try {
     existUser = await UserModal.findOne({ email });

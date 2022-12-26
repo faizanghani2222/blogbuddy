@@ -8,13 +8,12 @@ const UserAuthAPI = createApi({
   reducerPath: "UserApis",
   baseQuery: fetchBaseQuery({
     baseUrl: "http://localhost:8080/",
-    prepareHeaders: (headers, { getState }) => {
-      const token = getState().auth.token;
+    prepareHeaders: async (headers, { getState }) => {
+      const token =await getState().auth.token
       if (token) {
         headers.set("authorization", `Bearer ${token}`);
       }
-
-      return headers;
+     return headers
     },
   }),
 

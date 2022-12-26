@@ -6,8 +6,9 @@ async function handleClick(text,createSignIn,toast,dispatch) {
       
       
       if (user?.data) {
-      
-        dispatch(setCredentials(user.data))
+        //console.log()
+        window.localStorage.setItem("token",JSON.stringify(user.data.user))
+        await dispatch(setCredentials(user.data.user))
         toast({
           title: user?.data?.message,
           position: "top-right",

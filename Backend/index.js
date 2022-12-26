@@ -28,10 +28,10 @@ app.use("/user", User);
 app.use("/auth", authRoute);
 
 app.get("/", (req, res) => {
-  const token1 = req.header("Authorization");
-  console.log(token1);
+ 
   res.send("hello");
 });
+
 dbConnect();
 app.listen(8080, () => {
   console.log("server started on port 8080");

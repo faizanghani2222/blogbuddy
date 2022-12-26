@@ -3,13 +3,13 @@ import {createSlice} from "@reduxjs/toolkit"
 
 const slice=createSlice({
     name:"auth",
-    initialState:{username:null,token:null} ,
+    initialState:{email:null,token:null} ,
     reducers:{
         setCredentials:(
             state,
-            {payload:{username,token}}
+            {payload:{email,token}}
         )=>{
-            state.username=username
+            state.email=email
             state.token=token
         }
     }
@@ -18,4 +18,4 @@ const slice=createSlice({
 export const {setCredentials}=slice.actions;
 export default slice.reducer
 
-export const selectCurrentuser=(state)=>state.auth.username
+export const selectCurrentuser=(state)=>state.auth.email
