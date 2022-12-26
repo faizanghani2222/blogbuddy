@@ -1,7 +1,8 @@
 import { Avatar, Box, Flex, Img, Stack, Text } from "@chakra-ui/react";
 import React from "react";
+import { Link } from "react-router-dom";
 
-const BlogCard = ({title,image,category,date,content}) => {
+const BlogCard = ({id,title,image,category,date,content}) => {
   return (
     <Box w="90%" m='30px 0'>
     
@@ -13,12 +14,14 @@ const BlogCard = ({title,image,category,date,content}) => {
         </Text>
       </Flex>
       <Flex justify='space-between' align='center' gap='50px'>
+      <Link to={`/blog/${id}`} >
         <Stack>
         <Text fontSize="25px" fontWeight="bold">
           {title}
         </Text>
         <div dangerouslySetInnerHTML={{__html:content.slice(0,200)}} />
         </Stack>
+        </Link>
         <Img h='100px' src={image} />
       </Flex>
       <Flex m='20px' w='70%' justify='space-between' align='center'>

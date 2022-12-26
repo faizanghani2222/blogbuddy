@@ -4,8 +4,10 @@ import { Route, Routes } from "react-router-dom";
 import Blog from "../Pages/Blog";
 import BlogDesc from "../Pages/BlogDesc";
 import CreateBlog from "../Pages/CreateBlog";
+import Following from "../Pages/Following";
 import Login from "../Pages/Login/Login";
 import SignUp from "../Pages/SignUp/SignUp";
+import Suggestions from "../Pages/Suggestions";
 import Navbar from "./Navbar";
 
 const AllRoutes = () => {
@@ -18,6 +20,8 @@ const AllRoutes = () => {
         <Route path="/create-blog" element={<CreateBlog />} />
         <Route path="/blog" element={<><Navbar/><Blog/></>}/>
         <Route path="/blog/:id" element={<><Navbar/><BlogDesc/></>}/>
+        <Route path="/me/following" element={<><Navbar/><Following/></>}/>
+        <Route path="/me/following/suggestions" element={<><Navbar/><Suggestions/></>}/>
       </Routes>
     </Box>
   );
