@@ -9,3 +9,6 @@ export async function postBlog(data){
 export async function getBlogs(){
     return await axios.get(`${BASE_URL}/blog`);
 }
+export async function getBlogById(id){
+    return await axios.get(`${BASE_URL}/blog/${id}`);
+}

@@ -1,5 +1,5 @@
 const express=require("express");
-const { postBlogHandler, getBlogHandler, updateBlogHandler, deleteBlogHandler } = require("../Controller/blog.controller");
+const { postBlogHandler, getBlogHandler, updateBlogHandler, deleteBlogHandler, getBlogByIdHandler } = require("../Controller/blog.controller");
 const app=express.Router();
 app.post("/",async (req,res)=>{
     try {
@@ -12,6 +12,14 @@ app.post("/",async (req,res)=>{
 app.get("/",async (req,res)=>{
     try {
         let response=await getBlogHandler();
+        res.status(200).send(response); 
+    } catch (e) {
+        res.status(500).send({message:e.message,error:true});
+    }
+})
+app.get("/:id",async (req,res)=>{
+    try {
+        let response=await getBlogByIdHandler(req.params.id);
         res.status(200).send(response); 
     } catch (e) {
         res.status(500).send({message:e.message,error:true});

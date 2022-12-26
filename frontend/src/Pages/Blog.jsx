@@ -3,7 +3,6 @@ import React, { useState } from "react";
 import { useEffect } from "react";
 import { getBlogs } from "../api";
 import BlogCard from "../Components/BlogCard";
-
 const Blog = () => {
    const [data,setData]=useState([]);
    const getHandler=async ()=>{
@@ -24,8 +23,9 @@ const Blog = () => {
         </Box>
         {
           data?.map((el)=>
-         <Box key={el._id}>
-            <BlogCard 
+          <Box key={el._id}>
+            <BlogCard
+            id={el._id}  
             title={el.title}
             image={el.image}
             content={el.content}
@@ -33,13 +33,11 @@ const Blog = () => {
             date={el.postedAt}
             />
             <hr />
-         </Box>
+            </Box>
           
           )
         }
         </Box>
-        {/* Right Sidebar */}
-        {/* <Box border="1px solid black" h="500px" w='30%'></Box> */}
         {/* Right Sidebar */}
       </Flex>
     </Box>
